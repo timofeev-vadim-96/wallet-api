@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: wallet-api
+  datasource:
+    url: jdbc:postgresql://localhost:6666/wallet_db
+    username: admin
+    password: admin
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  liquibase:
+    enabled: true
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: "git@github.com:timofeev-vadim-96/wallet-cloud-config.git"
+          default-label: main
+          searchPaths: /*
+          clone-on-start: true
+          refreshRate: 60
+
+springdoc:
+  api-docs:
+    path: "/api/v1/api-docs"
+  swagger-ui:
+    path: "/api/v1/swagger-ui"
+  override-with-generic-response: false

@@ -51,7 +51,7 @@ class WalletServiceImplTest {
 
     @BeforeEach
     void stub() {
-        wallet = new Wallet(UUID.randomUUID(), new BigDecimal("1000.00"), null);
+        wallet = new Wallet(UUID.randomUUID(), new BigDecimal("1000.00"));
 
         when(walletRepository.findById(any(UUID.class)))
                 .thenReturn(Optional.of(wallet));
@@ -81,7 +81,7 @@ class WalletServiceImplTest {
     @MethodSource("getArguments")
     void makeTransaction(OperationType type, BigDecimal amount, BigDecimal expectedBalance) {
         when(walletRepository.save(any(Wallet.class)))
-                .thenReturn(new Wallet(wallet.getId(), expectedBalance, null));
+                .thenReturn(new Wallet(wallet.getId(), expectedBalance));
         ArgumentCaptor<Wallet> walletCaptor = ArgumentCaptor.forClass(Wallet.class);
 
         WalletDto dto = walletService.makeTransaction(UUID.randomUUID(), type, amount);

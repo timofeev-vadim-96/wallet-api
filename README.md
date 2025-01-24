@@ -20,15 +20,15 @@
 - Liquibase
 
 `Features`
-- Using optimistic locking to maintain data consistency with
+- Using _pessimistic_ locking to maintain data consistency with
   a large number of parallel updates to the same resource
 - Retry to increase the fault tolerance of the application
 
 `Testing`
 - the level of controllers, services, converters are covered by tests
-- performed load testing of 1000 RPS using `Gatling`
+- performed load testing of 1000 RPS at the endpoint of the wallet balance change using `Gatling`
 
-![](http://postimg.su/image/uNCKksjo/galting_test.png "1000RPS")
+![](http://postimg.su/image/UiNJCF19/galting_pessimistic_lock_test.png)
 
 `Quick start`
 1. Clone a repository:

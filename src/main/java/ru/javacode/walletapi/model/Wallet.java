@@ -37,8 +37,8 @@ public class Wallet {
     @Column(name = "balance")
     @Setter
     private BigDecimal balance;
-
-    @Version
-    @Column(name = "version")
-    private Integer version;
+//
+//    @Version
+//    @Column(name = "version")
+//    private Integer version;
 }

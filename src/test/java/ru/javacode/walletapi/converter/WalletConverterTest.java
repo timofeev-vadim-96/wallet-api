@@ -22,7 +22,7 @@ class WalletConverterTest {
 
     @Test
     void convertToDto() {
-        Wallet wallet = new Wallet(UUID.randomUUID(), new BigDecimal("100.00"), null);
+        Wallet wallet = new Wallet(UUID.randomUUID(), new BigDecimal("100.00"));
 
         WalletDto dto = converter.convertToDto(wallet);
 

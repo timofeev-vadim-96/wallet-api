@@ -5,6 +5,6 @@
 create table wallets
 (
     id      uuid not null primary key default gen_random_uuid(),
-    balance numeric(38, 2),
-    version integer default 1
+    balance numeric(38, 2)
+--     version integer default 1
 );

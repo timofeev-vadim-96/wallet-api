@@ -35,7 +35,7 @@ public class WalletServiceImpl implements WalletService {
     @Override
     @Transactional
     @Retryable(
-            maxAttempts = 40,
+            maxAttempts = 60,
             retryFor = Exception.class,
             noRetryFor = {EntityNotFoundException.class, InsufficientFundsException.class},
             backoff = @Backoff(delay = 100))

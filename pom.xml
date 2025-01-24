@@ -24,6 +24,8 @@
         <springdoc.version>2.2.0</springdoc.version>
         <java.version>17</java.version>
         <spring-cloud.version>2023.0.3</spring-cloud.version>
+        <gatling-maven-plugin.version>4.2.9</gatling-maven-plugin.version>
+        <gatling.version>3.7.2</gatling.version>
     </properties>
     <dependencies>
         <dependency>
@@ -66,10 +68,22 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <!--Testing-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-app</artifactId>
+            <version>${gatling.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.gatling.highcharts</groupId>
+            <artifactId>gatling-charts-highcharts</artifactId>
+            <version>${gatling.version}</version>
         </dependency>
 
         <!--Documentation-->
@@ -132,6 +146,14 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>io.gatling</groupId>
+                <artifactId>gatling-maven-plugin</artifactId>
+                <version>${gatling-maven-plugin.version}</version>
+                <configuration>
+                    <simulationClass>org.baeldung.EmployeeRegistrationSimulation</simulationClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>

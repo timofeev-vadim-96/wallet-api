@@ -14,27 +14,29 @@
 `Stack`
 - Java 17
 - Docker-compose
-- Spring boot 3 (Data JPA/Validation/Web/Cloud)
+- Spring Boot 3 (Data JPA/Validation/Web/Cloud)
 - Spring Retry
 - Postgres
 - Liquibase
 
-`Особенности`
-- Использование оптимистичной блокировки для сохранения консистентности данных при 
-большом количестве параллельных обновлений на один и тот же ресурс
-- Retry для повышения отказоустойчивости приложения
+`Features`
+- Using optimistic locking to maintain data consistency with
+  a large number of parallel updates to the same resource
+- Retry to increase the fault tolerance of the application
 
 `Testing`
-- уровень контроллеров, сервисов, конвертеров покрыты тестами
-- произведено нагрузочное тестирование 1000 RPS с помощью 
+- the level of controllers, services, converters are covered by tests
+- performed load testing of 1000 RPS using `Gatling`
 
-`Локальный запуск / Quick start`
-1. Склонировать репозиторий:
+![](http://postimg.su/image/uNCKksjo/galting_test.png "1000RPS")
+
+`Quick start`
+1. Clone a repository:
 ```bash
-git clone 
-cd wallet-api 
+git clone https://github.com/timofeev-vadim-96/wallet-api
+cd wallet-api
 ```
-2. Выполнить команду в терминале:
+2. Run the command in the terminal:
 ```bash
 docker-compose up --build -d
 ```

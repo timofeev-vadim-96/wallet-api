@@ -13,17 +13,17 @@ services:
     volumes:
       - ./docker/postgres-data:/var/lib/postgresql/data
 
-#  app:
-#    build:
-#      context: ./
-#      dockerfile: Dockerfile
-#    #    image: wallet:1.0 - если запускать из готового образа
-#    container_name: wallet_app
-#    ports:
-#      - "8888:8080"
-#    depends_on:
-#      - postgres
-#    environment:
-#      SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:6666/wallet_db
-#      SPRING_DATASOURCE_USERNAME: admin
-#      SPRING_DATASOURCE_PASSWORD: admin
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    #    image: wallet:1.0 - если запускать из готового образа
+    container_name: wallet_app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/wallet_db
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: admin
